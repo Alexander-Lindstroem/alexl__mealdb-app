@@ -1,7 +1,7 @@
 import MealPreview from "@/components/MealPreview"
 import { fetchCategories } from "../page"
 import { removeReferenceBrackets } from "@/utils/functions"
-import FavoriteCategoryButton from "./FavoriteCategoryButton"
+import FavoriteCategoryButton from "@/components/FavoriteCategoryButton"
 
 type MealCategoryType = {
     strMeal: string,

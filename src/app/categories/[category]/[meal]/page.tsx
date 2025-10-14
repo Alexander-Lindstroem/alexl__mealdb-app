@@ -2,7 +2,7 @@ import YouTubeEmbed from "@/components/YoutubeEmbed"
 import { ObjectToArrayFilter } from "@/utils/functions"
 import { MealTypes, SavedMealType } from "@/utils/types"
 import Image from "next/image"
-import FavoriteRecipeButton from "./FavoriteRecipeButton"
+import FavoriteRecipeButton from "@/components/FavoriteRecipeButton"
 
 const Meal = async ( {params} : {params : {meal:string}} ) => {
     const {meal} = await params
