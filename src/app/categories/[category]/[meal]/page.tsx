@@ -1,20 +1,22 @@
 import YouTubeEmbed from "@/components/YoutubeEmbed"
 import { ObjectToArrayFilter } from "@/utils/functions"
-import { SavedMealType } from "@/utils/types"
+import { MealTypes, SavedMealType } from "@/utils/types"
 import Image from "next/image"
 import FavoriteRecipeButton from "./FavoriteRecipeButton"
 
 const Meal = async ( {params} : {params : {meal:string}} ) => {
     const {meal} = await params
 
-    const fetchMealData = async () => {
+    const fetchMealData = async ():Promise<MealTypes> => {
+        let data
         try {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`)
-            const data = await response.json()
-            return data.meals[0]
+            data = await response.json()
+            
         } catch (error) {
             console.log(error)
         }
+        return data.meals[0]
     }
 
     const mealData = await fetchMealData()
@@ -32,8 +34,8 @@ const Meal = async ( {params} : {params : {meal:string}} ) => {
         category: mealData.strCategory
     }
 
-    const startsWithVowel = /^[aeiou]/.test(mealData.strArea.toLowerCase())
-    const aOrAn = startsWithVowel ? "An" : "A"
+    const startsWithVowel:boolean = /^[aeiou]/.test(mealData.strArea.toLowerCase())
+    const aOrAn:string = startsWithVowel ? "An" : "A"
 
     return (
         <>
