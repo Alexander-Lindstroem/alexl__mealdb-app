@@ -1,17 +1,5 @@
 import CategoryDisplayer from "@/components/CategoryDisplayer";
-
-type Category = {
-    idCategory: string;
-    strCategory: string;
-    strCategoryThumb: string;
-    strCategoryDescription: string;
-}
-
-export const fetchCategories = async ():Promise<Category[]> => {
-    const response = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-    const data = await response.json()
-    return data.categories
-}
+import { fetchCategories } from "@/utils/functions";
 
 const Categories = async () => {
     const categories = await fetchCategories()

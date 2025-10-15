@@ -1,3 +1,4 @@
+import { Category } from "./data";
 import { UserTypes } from "./types";
 
 export const removeReferenceBrackets = (string:string): string => {
@@ -14,4 +15,10 @@ export const saveUser = (object:UserTypes | null) => {
   } else {
     localStorage.setItem("savedUser", JSON.stringify(object))
   }
+}
+
+export const fetchCategories = async ():Promise<Category[]> => {
+    const response = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+    const data = await response.json()
+    return data.categories
 }
