@@ -12,7 +12,7 @@ type MealPageProps = {
 }
 
 const MealPage = async ( {params} : MealPageProps ) => {
-    const {category, meal} = await params
+    const {category, meal} = params
 
     const fetchMealData = async ():Promise<MealTypes> => {
         let data
