@@ -8,9 +8,9 @@ type MealCategoryType = {
     idMeal: string
 }
 
-type Params = Promise<{ category: string }>
+// type Params = Promise<{ category: string }>
 
-const CategoryPage = async ({ params }:{ params: Params }) => {
+const CategoryPage = async ({ params }:{ params: {category: string} }) => {
     const {category} = await params
 
     const fetchCategoryData = async ():Promise<MealCategoryType[]> => {
