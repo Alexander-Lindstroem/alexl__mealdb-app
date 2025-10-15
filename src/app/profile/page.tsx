@@ -19,11 +19,11 @@ const Profile = () => {
                         <h2 className="font-header text-xl lg:text-2xl">Welcome to your profile,</h2>
                         <h2 className="text-blue-800 text-4xl">{user.name}</h2>
                     </div>
-                    <p className="text-center mx-6">Here you can view whatever recipes you have favorited, as well as what your category you have chosen as your overall favorite.</p>
+                    <p className="text-center mx-6">Here you can view whatever recipes you have favorited, as well as what category you have chosen as your overall favorite.</p>
                 </div>
                 <div className="py-12 w-full flex flex-col justify-center items-center border-y-1 border-dotted">
                     <p>Your current favorite category is...</p>
-                    {user.favoriteCategory ? <CategoryDisplayer image={`${CATEGORY_IMAGE_URL}/${user.favoriteCategory.toLowerCase()}.png`} name={user.favoriteCategory}/> : "None"}
+                    {user.favoriteCategory ? <CategoryDisplayer image={`${CATEGORY_IMAGE_URL}/${user.favoriteCategory.toLowerCase()}.png`} name={user.favoriteCategory}/> : <p className="pt-6">You do not have a favorite category yet</p>}
                 </div>
                 <div>
                     <p className="text-center pb-12">Your current favorite recipes are...</p>
