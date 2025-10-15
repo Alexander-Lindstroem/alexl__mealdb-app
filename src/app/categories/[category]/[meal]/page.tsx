@@ -4,8 +4,15 @@ import { MealTypes, SavedMealType } from "@/utils/types"
 import Image from "next/image"
 import FavoriteRecipeButton from "@/components/FavoriteRecipeButton"
 
-const Meal = async ( {params} : {params : {meal:string}} ) => {
-    const {meal} = await params
+type MealPageProps = {
+    params: {
+        category: string;
+        meal: string;
+    }
+}
+
+const MealPage = async ( {params} : MealPageProps ) => {
+    const {category, meal} = await params
 
     const fetchMealData = async ():Promise<MealTypes> => {
         let data
@@ -69,4 +76,4 @@ const Meal = async ( {params} : {params : {meal:string}} ) => {
     )
 }
 
-export default Meal
+export default MealPage

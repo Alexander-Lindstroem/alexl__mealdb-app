@@ -9,7 +9,7 @@ type MealCategoryType = {
     idMeal: string
 }
 
-const Category = async ({ params }:{ params:{category:string} }) => {
+const CategoryPage = async ({ params }:{ params:{category:string} }) => {
     const {category} = await params
 
     const fetchCategoryData = async ():Promise<MealCategoryType[]> => {
@@ -45,4 +45,4 @@ const Category = async ({ params }:{ params:{category:string} }) => {
     )
 }
 
-export default Category
+export default CategoryPage
