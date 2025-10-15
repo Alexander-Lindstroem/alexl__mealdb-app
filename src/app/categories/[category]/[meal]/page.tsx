@@ -9,9 +9,10 @@ type MealPageProps = {
         category: string;
         meal: string;
     }
+    searchParams: { [key: string]: string | string[] | undefined }; 
 }
 
-const MealPage = async ( {params} : MealPageProps ) => {
+export default async function MealPage ( {params, searchParams} : MealPageProps ) {
     const {category, meal} = params
 
     const fetchMealData = async ():Promise<MealTypes> => {
@@ -75,5 +76,3 @@ const MealPage = async ( {params} : MealPageProps ) => {
         </>
     )
 }
-
-export default MealPage
