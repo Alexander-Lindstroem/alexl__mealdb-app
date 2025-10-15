@@ -1,3 +1,4 @@
+'use client'
 import YouTubeEmbed from "@/components/YoutubeEmbed"
 import { ObjectToArrayFilter } from "@/utils/functions"
 import { MealTypes, SavedMealType } from "@/utils/types"
