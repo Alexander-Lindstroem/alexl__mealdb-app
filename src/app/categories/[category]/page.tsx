@@ -1,5 +1,5 @@
 import MealPreview from "@/components/MealPreview"
-import { fetchCategories } from "../page"
+import { fetchCategories } from "@/app/categories/page"
 import { removeReferenceBrackets } from "@/utils/functions"
 import FavoriteCategoryButton from "@/components/FavoriteCategoryButton"
 
