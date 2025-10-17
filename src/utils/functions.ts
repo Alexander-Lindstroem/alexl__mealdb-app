@@ -10,10 +10,14 @@ export const ObjectToArrayFilter = (object:object, filter:string):string[] => {
 }
 
 export const saveUser = (object:UserTypes | null) => {
-  if (object === null) {
-    localStorage.removeItem("savedUser")
+  localStorage.setItem(`savedUser__${object!.name}`, JSON.stringify(object))
+}
+
+export const saveSession = (userName: string | null) => {
+  if (userName) {
+    localStorage.setItem("lastSession", userName)
   } else {
-    localStorage.setItem("savedUser", JSON.stringify(object))
+    localStorage.removeItem("lastSession")
   }
 }
 

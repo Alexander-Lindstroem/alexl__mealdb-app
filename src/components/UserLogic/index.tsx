@@ -9,10 +9,13 @@ const UserLogic = () => {
     const {user, setUser} = useUserContext() as UserContextType
 
     useEffect(() => {
-        const storedUserString = localStorage.getItem("savedUser");
-        if (storedUserString) {
-            const storedUserObject = JSON.parse(storedUserString)
-            setUser(storedUserObject);
+        const storedSession = localStorage.getItem("lastSession");
+        if (storedSession) {
+            const userKey = `savedUser__${storedSession}`
+            const lastUser = localStorage.getItem(userKey)
+            if (lastUser) {
+                setUser(JSON.parse(lastUser))
+            }         
         }
     }, []);
 

@@ -1,6 +1,7 @@
 'use client'
 import { useUserContext } from "@/utils/contexts"
 import { users } from "@/utils/data"
+import { saveSession } from "@/utils/functions"
 import { UserContextType, UserTypes } from "@/utils/types"
 import { redirect } from "next/navigation"
 import { useState } from "react"
@@ -26,14 +27,14 @@ const LoginForm = () => {
             const userObject:UserTypes = users.filter(object => object.name == usernameInput)[0]
 
             if (userObject) {
-                const savedUser = localStorage.getItem("savedUser")
+                const savedUser = localStorage.getItem(`savedUser__${userObject.name}`)
                 if (savedUser) {
-                    if (JSON.parse(savedUser).name === userObject.name) {
-                        setUser(JSON.parse(savedUser))
-                        redirect("/")
-                    }
+                    setUser(JSON.parse(savedUser))
+                    saveSession(JSON.parse(savedUser).name)
+                    redirect("/")
                 } else {
                     setUser(userObject)
+                    saveSession(userObject.name)
                     redirect("/")
                 }
             } else {

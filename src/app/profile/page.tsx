@@ -28,9 +28,12 @@ const Profile = () => {
                 <div>
                     <p className="text-center pb-12">Your current favorite recipes are...</p>
                     <div className="flex justify-center flex-wrap gap-8">
-                        {user.favoriteRecipes.map( (meal, index) => (
+                        {user.favoriteRecipes.length !== 0 ? 
+                        user.favoriteRecipes.map( (meal, index) => (
                             <MealPreview key={index} {...meal} />
-                        ))}
+                        ))
+                        : 
+                        <div>No recipes here yet!</div>}
                     </div>
                 </div>
             </section>
